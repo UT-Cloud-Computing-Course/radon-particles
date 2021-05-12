@@ -24,11 +24,12 @@ node_types:
         type: string
         required: true
         description: The identifier for Azure region in which resources are/will be deployed
+        default: "northeurope" 
       functions_version:
         type: integer
         required: false
         description: The version of the Azure function app
-        default: 3
+        default: 2
         constraints:
           - valid_values: [ 2, 3 ]
       os_type:
@@ -37,6 +38,7 @@ node_types:
         description: The Azure function app OS type
         constraints:
           - valid_values: [ Windows, Linux ]
+        default: "Linux"
       runtime_type:
         type: string
         required: true
@@ -47,6 +49,7 @@ node_types:
         type: float
         required: true
         description: The version of the Azure functions runtime stack
+        default: "3.7"
       zip_file:
         type: string
         required: true

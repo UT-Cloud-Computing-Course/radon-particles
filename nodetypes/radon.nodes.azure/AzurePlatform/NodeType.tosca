@@ -11,6 +11,7 @@ node_types:
       region:
         type: string
         description: The identifier for Azure region in which resources are/will be deployed
+        default: "northeurope"
     capabilities:
       host:
         occurrences: [ 1, UNBOUNDED ]

@@ -20,18 +20,22 @@ node_types:
         type: string
         required: true
         description: The identifier for Azure region in which resources are/will be deployed
+        default: "northeurope"
       account_type:
         type: string
         required: true
         description: The type of Azure storage account
+        default: "Standard_RAGRS"
       access_tier:
         type: string
         required: true
         description: The access tier for this storage account
+        default: "Hot"
       storage_kind:
         type: string
         required: true
         description: The kind of Azure storage
+        default: "StorageV2"
     requirements:
       - host:
           capability: tosca.capabilities.Container

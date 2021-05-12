@@ -16,6 +16,7 @@ node_types:
         type: string
         required: true
         description: The identifier for Azure region in which resources are/will be deployed
+        default: "northeurope"
     requirements:
       - host:
           capability: tosca.capabilities.Container
