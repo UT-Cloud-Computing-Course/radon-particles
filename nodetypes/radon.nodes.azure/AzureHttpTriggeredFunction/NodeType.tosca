@@ -21,14 +21,17 @@ node_types:
       route:
         type: string
         required: false
+        default: "none"
       auth_level:
         type: string
         required: false
         constraints:
           - valid_values: [ anonymous, function, admin ]
+        default: "anonymous"
       methods:
         type: list
         required: false
+        default: []
       route_prefix:
         type: string
         default: "api"
