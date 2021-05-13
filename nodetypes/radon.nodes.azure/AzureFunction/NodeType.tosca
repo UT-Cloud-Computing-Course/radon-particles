@@ -45,6 +45,7 @@ node_types:
         description: The Azure function runtime type
         constraints:
           - valid_values: [ dotnet, node, java, python, powershell ]
+        default: "python"
       runtime_version:
         type: float
         required: true
