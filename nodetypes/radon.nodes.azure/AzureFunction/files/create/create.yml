@@ -2,6 +2,12 @@
 - hosts: all
   gather_facts: false
   tasks:
+    - name: Wait for Storage Account
+      shell: "az resource wait --exists \
+            --name  {{ storage_account_name }} \
+            --resource-group {{ resource_group_name }} \
+            --resource-type 'Microsoft.Storage/storageAccounts'"
+            
     - name: Create a new Azure function app
       shell: "az functionapp create \
             --name {{ function_app_name }} \
@@ -12,11 +18,14 @@
             --runtime {{ runtime_type }} \
             --runtime-version {{ runtime_version }} \
             --functions-version {{ functions_version }}"
+    - name: Pause for ninety seconds to wait for Service Plan to deploy
+      pause:
+        seconds: 90
+        prompt: "Azure function definition created, waiting 90s before deploying app"
 
     - name: Deploy function to Azure function app (using the kudu zip push deployment)
       shell: "az functionapp deployment source config-zip \
               --name {{ function_app_name }} \
               --resource-group {{ resource_group_name }} \
               --src {{ zip_file }} \
-              --build-remote {{ build_remote }} \
               --timeout {{ timeout }}"
