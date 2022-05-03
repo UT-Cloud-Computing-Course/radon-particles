@@ -29,4 +29,6 @@
               --name {{ function_app_name }} \
               --resource-group {{ resource_group_name }} \
               --src {{ zip_file }} \
-              --timeout {{ timeout }}"
+              --timeout {{ timeout }} \
+              --build true"
+             
