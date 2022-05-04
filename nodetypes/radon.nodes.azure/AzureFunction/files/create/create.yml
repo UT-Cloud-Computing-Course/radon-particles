@@ -6,6 +6,7 @@
       shell: "az resource wait --exists \
             --name  {{ storage_account_name }} \
             --resource-group {{ resource_group_name }} \
+            --timeout {{ timeout }} \
             --resource-type 'Microsoft.Storage/storageAccounts'"
             
     - name: Create a new Azure function app
