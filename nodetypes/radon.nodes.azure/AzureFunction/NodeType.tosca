@@ -29,9 +29,9 @@ node_types:
         type: integer
         required: false
         description: The version of the Azure function app
-        default: 2
+        default: 4
         constraints:
-          - valid_values: [ 2, 3 ]
+          - valid_values: [ 2, 3, 4 ]
       os_type:
         type: string
         required: true
