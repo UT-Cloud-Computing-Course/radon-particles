@@ -17,12 +17,13 @@
         name: pip
         state: latest
 
-    - name: Install specified python requirements
-      pip:
-        requirements: "{{playbook_dir}}/{{ requirements_file }}"
 
     - name: install ansible galaxy Azure module
       command: ansible-galaxy collection install azure.azcollection
+
+    - name: Install specified python requirements
+      pip:
+        requirements: "~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt"
 
 
 #    - name: Install Azure CLI from PyPI
